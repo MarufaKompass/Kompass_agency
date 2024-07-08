@@ -20,7 +20,7 @@ const feature = {
       id: 'add_agent',
       title: 'Add Agent',
       type: 'item',
-      url: '/appointment',
+      url: '/add_agent',
       icon: icons.appoints
     },
     {

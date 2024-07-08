@@ -1,7 +1,6 @@
-import React from 'react'
+import MainCard from 'components/MainCard';
+import React from 'react';
 
 export default function DeActive() {
-  return (
-    <div>DeActive</div>
-  )
+  return <MainCard>DeActive</MainCard>;
 }

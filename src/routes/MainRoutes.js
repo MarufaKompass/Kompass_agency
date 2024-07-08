@@ -1,5 +1,4 @@
 import Loadable from 'components/Loadable';
-
 import { Suspense, lazy } from 'react';
 import Typography from 'themes/overrides/Typography';
 
@@ -8,6 +7,7 @@ const DeActive = Loadable(lazy(() => import('pages/components-overview/agent/DeA
 const Active = Loadable(lazy(() => import('pages/components-overview/agent/Active')));
 const MainLayout = Loadable(lazy(() => import('layout/MainLayout')));
 const PrivateRoutes = Loadable(lazy(() => import('components/privateRoute/PrivateRoutes')));
+const AddAgent = Loadable(lazy(() => import('pages/components-overview/addAgent/AddAgent')));
 
 const MainRoutes = {
   path: '/',
@@ -61,7 +61,18 @@ const MainRoutes = {
           </PrivateRoutes>
         </Suspense>
       )
-    }
+    },
+    {
+      path: 'add_agent',
+      element: (
+        <Suspense fallback={<Typography>Loading...</Typography>}>
+          {' '}
+          <PrivateRoutes>
+            <AddAgent></AddAgent>
+          </PrivateRoutes>
+        </Suspense>
+      )
+    },
   ]
 };
 

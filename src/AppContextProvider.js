@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import axiosInstance from 'utils/axios.config';
-import { debounce } from 'lodash';
+import React, { createContext, useContext, useState } from 'react';
+// import axios from 'axios';
+// import axiosInstance from 'utils/axios.config';
+// import { debounce } from 'lodash';
 
 const storage = JSON.parse(sessionStorage.getItem('usersInfo'));
 const initialEventDetails = sessionStorage.getItem('eventDetails') || '';
@@ -37,7 +37,7 @@ export const AppContextProvider = ({ children }) => {
   const [empPayroll, setEmpPayroll] = useState('');
   const [profile, setProfile] = useState('');
 
-  const dataLoaded = useRef(false);
+  // const dataLoaded = useRef(false);
 
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
@@ -52,54 +52,54 @@ export const AppContextProvider = ({ children }) => {
     setTableData(newData);
   };
 
-  useEffect(() => {
-    if (!dataLoaded.current) {
-      async function fetchData() {
-        try {
-          const response = await axios.get('https://api.hellokompass.com/country/');
-          setCountry(response.data.data);
-          dataLoaded.current = true;
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      fetchData();
-    }
-  }, [dataLoaded, country]);
+  // useEffect(() => {
+  //   if (!dataLoaded.current) {
+  //     async function fetchData() {
+  //       try {
+  //         const response = await axios.get('https://api.hellokompass.com/country/');
+  //         setCountry(response.data.data);
+  //         dataLoaded.current = true;
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //     }
+  //     fetchData();
+  //   }
+  // }, [dataLoaded, country]);
 
-  useEffect(() => {
-    const fetchData = debounce(() => {
-      axiosInstance
-        .get('https://api.hellokompass.com/profile')
-        .then((res) => {
-          setProfile(res.data.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, 500);
-    fetchData();
-    return () => {
-      fetchData.cancel();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = debounce(() => {
+  //     axiosInstance
+  //       .get('https://api.hellokompass.com/profile')
+  //       .then((res) => {
+  //         setProfile(res.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }, 500);
+  //   fetchData();
+  //   return () => {
+  //     fetchData.cancel();
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const fetchData = debounce(() => {
-      axiosInstance
-        .get('https://api.hellokompass.com/payroll/empprofile')
-        .then((res) => {
-          setEmpPayroll(res.data.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, 500);
-    fetchData();
-    return () => {
-      fetchData.cancel();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = debounce(() => {
+  //     axiosInstance
+  //       .get('https://api.hellokompass.com/payroll/empprofile')
+  //       .then((res) => {
+  //         setEmpPayroll(res.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }, 500);
+  //   fetchData();
+  //   return () => {
+  //     fetchData.cancel();
+  //   };
+  // }, []);
 
   return (
     <AppContext.Provider

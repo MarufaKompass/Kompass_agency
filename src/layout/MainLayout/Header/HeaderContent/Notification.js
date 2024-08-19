@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import {
@@ -29,9 +29,6 @@ import { useAppContext } from 'AppContextProvider';
 import NotificationModal from 'components/modal/NotificationModal';
 import { useNavigate } from 'react-router-dom';
 import Notify from 'components/svg/Notify';
-import axiosInstance from 'utils/axios.config';
-import MeetingModal from 'components/modal/Notification/MeetingModal';
-import EventModal from 'components/modal/Notification/EventModal';
 
 // sx styles
 const avatarSX = {
@@ -53,10 +50,10 @@ const actionSX = {
 const Notification = () => {
   const theme = useTheme();
   const matchesXs = useMediaQuery(theme.breakpoints.down('md'));
-  const { shortNotifications, setShortNotifications, count, setCount } = useAppContext();
+  const { shortNotifications, count } = useAppContext();
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
-  const [openEventModal, setOpenEventModal] = useState(false);
+
   const [openNotificationModal, setOpenNotificationModal] = useState(false);
 
   const handleToggle = () => {
@@ -104,42 +101,10 @@ const Notification = () => {
     navigate('/notification');
   };
 
-  // count API
-
-  useEffect(() => {
-    axiosInstance
-      .get('https://api.hellokompass.com/notification/count')
-      .then((res) => {
-        const data = res.data;
-        setCount(data.data.count || 0);
-      })
-      .catch((error) => {
-        <></>;
-      });
-  }, []);
-
-  //notification API
-  useEffect(() => {
-    axiosInstance
-      .get('https://api.hellokompass.com/notification?limit=3&offset=0')
-      .then((res) => {
-        const data = res.data;
-        setShortNotifications(data.data);
-      })
-      .catch((error) => {
-        <></>;
-      });
-  }, []);
-
-  const [meetingModal, setMeetingModal] = useState();
-  const [openMeetingModal, setOpenMeetingModal] = useState(false);
-
   const handleMeetingNotification = (notify) => {
     setOpenMeetingModal(true);
     setMeetingModal(notify);
   };
-
-  const [invitation, setInvitation] = useState();
 
   const handleEventNotification = (notify) => {
     setOpenEventModal(true);
@@ -270,12 +235,12 @@ const Notification = () => {
                     </List>
                   ))}
 
-                  <MeetingModal
+                  {/* <MeetingModal
                     meetingModal={meetingModal}
                     openMeetingModal={openMeetingModal}
                     handleClose={() => setOpenMeetingModal(false)}
                   />
-                  <EventModal invitation={invitation} openEventModal={openEventModal} handleClose={() => setOpenEventModal(false)} />
+                  <EventModal invitation={invitation} openEventModal={openEventModal} handleClose={() => setOpenEventModal(false)} /> */}
                   <NotificationModal
                     courierModal={courierModal}
                     openNotificationModal={openNotificationModal}

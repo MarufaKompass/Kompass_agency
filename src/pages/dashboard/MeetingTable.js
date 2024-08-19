@@ -1,40 +1,40 @@
-import { useEffect, useState } from 'react';
-import { debounce } from 'lodash';
-import "../../styles.css";
+// import { useEffect, useState } from 'react';
+// import { debounce } from 'lodash';
+import '../../styles.css';
 
 // material-ui
-import { Box, TableRow, Table, TableBody, TableCell, TableHead } from '@mui/material';
+import { Box } from '@mui/material';
 
 // project import
-import axiosInstance from 'utils/axios.config';
+// import axiosInstance from 'utils/axios.config';
 
 // ==============================|| ORDER TABLE ||============================== //
 
 export default function MeetingTable() {
-  const [upcoming, setUpcoming] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //   const [upcoming, setUpcoming] = useState([]);
+  //   const [loading, setLoading] = useState(true);
 
-  const fetchData = async () => {
-    try {
-      const response = await axiosInstance.get('https://api.hellokompass.com/allupcoming?limit=9&offset=0');
-      setUpcoming(response.data.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axiosInstance.get('https://api.hellokompass.com/allupcoming?limit=9&offset=0');
+  //     setUpcoming(response.data.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  const debouncedFetchData = debounce(fetchData, 100);
+  // const debouncedFetchData = debounce(fetchData, 100);
 
-  useEffect(() => {
-    setLoading(true); // Set loading to true before fetching data
-    debouncedFetchData();
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true); // Set loading to true before fetching data
+  //   debouncedFetchData();
+  // }, []);
 
-  const { meeting = [], booking = [], event = [], getinvitation = [] } = upcoming;
+  // const { meeting = [], booking = [], event = [], getinvitation = [] } = upcoming;
 
   return (
     <Box>
-      <Box sx={{ height: 510 }}>
+      {/* <Box sx={{ height: 510 }}>
         <Table sx={{ minWidth: 710 }} aria-label="customized table">
           <TableHead>
             <TableRow>
@@ -82,7 +82,7 @@ export default function MeetingTable() {
             ))}
           </TableBody>
         </Table>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

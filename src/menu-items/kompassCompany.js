@@ -20,7 +20,7 @@ const icons = {
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
 
 const kompassCompany = {
-  id: 'company',
+  id: 'agency',
   // title: 'kompass Company',
   type: 'group',
   children: [
@@ -45,7 +45,6 @@ const kompassCompany = {
 
           breadcrumbs: false
         }
-       
       ]
     }
   ]

@@ -11,12 +11,11 @@ const Login = () => (
     <Grid container spacing={4}>
       {/* <Grid item xs={12}></Grid> */}
 
-      <Grid item xs={12} sm={12} md={12} lg={6} xl={6} sx={{ display: {xs:"none", md: 'none', lg: 'block' } }}>
+      <Grid item xs={12} sm={12} md={12} lg={6} xl={6} sx={{ display: { xs: 'none', md: 'none', lg: 'block' } }}>
         <Stack md={{ width: '100%' }}>
-          <Box sx={{p:"25px"}}>
-          <img src={loginImage} alt="login" rel="Preload"></img>
+          <Box sx={{ p: '25px' }}>
+            <img src={loginImage} alt="login" rel="Preload"></img>
           </Box>
-          
         </Stack>
       </Grid>
 

@@ -1,13 +1,10 @@
 import dashboard from './dashboard';
 import kompassCompany from './kompassCompany';
-// import kompassPayroll from './kompassPayroll';
-//import support from './support';
-import feature from './feature';
 
-// ==============================|| MENU ITEMS ||============================== //
-// kompassPayroll
+import agent from './agent';
+
 const menuItems = {
-  items: [dashboard, feature, kompassCompany]
+  items: [dashboard, agent, kompassCompany]
 };
 
 export default menuItems;

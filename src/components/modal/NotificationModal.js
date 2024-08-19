@@ -5,7 +5,7 @@ import axiosInstance from 'utils/axios.config';
 import AcceptCourier from './Courier/AcceptCourier';
 import ReceiveCourier from './Courier/ReceiveCourier';
 import CancelCourier from './Courier/CancelCourier';
-import percel from '../../assets/images/images/percel.png';
+// import percel from '../../assets/images/image/percel.png';
 import CustomChip from 'components/Chip/CustomChip';
 import Uppercase from 'components/Uppercase/Uppercase';
 
@@ -40,6 +40,7 @@ export default function NotificationModal({ courierModal, openNotificationModal,
         console.log(res);
       });
     } else {
+      <></>
     }
   };
 

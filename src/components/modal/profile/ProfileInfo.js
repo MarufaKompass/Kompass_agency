@@ -1,51 +1,48 @@
 import React from 'react';
-import { Box, Divider, Grid, ListItem, Typography } from '@mui/material';
-import MainCard from 'components/MainCard';
-import { useAppContext } from 'AppContextProvider';
-import Uppercase from 'components/Uppercase/Uppercase';
+import { Box } from '@mui/material';
 
 export default function ProfileInfo() {
-  const { empPayroll } = useAppContext();
-  console.log(empPayroll);
-  const {
-    fname_emp,
-    lname_emp,
-    email_emp,
-    mobal,
-    gender_emp,
-    grade,
-    department,
-    dname,
-    emp_status,
-    empz_idsl,
-    nid_ssn,
-    tinx,
-    per_addx,
-    pre_addx,
-    paymode,
-    iou_sts,
-    bank_branch,
-    bank_name,
-    acc_name,
-    acc_no,
-    mfs_operator_name,
-    mfs_acc,
-    bonus_sts,
-    bonus_details,
-    allown_sts,
-    allown_details,
-    earnwage_sts,
-    providentfund_sts,
-    pickdrop_sts,
-    vehicle,
-    vehicle_rate
-  } = empPayroll;
-  const [bonusDetail1, bonusDetail2, bonusDetail3] = bonus_details && bonus_details.length >= 3 ? bonus_details : [null, null, null];
-  const [allownDetail1, allownDetail2, allownDetail3] = allown_details && allown_details.length >= 3 ? allown_details : [null, null, null];
+  // const { empPayroll } = useAppContext();
+  // console.log(empPayroll);
+  // const {
+  //   fname_emp,
+  //   lname_emp,
+  //   email_emp,
+  //   mobal,
+  //   gender_emp,
+  //   grade,
+  //   department,
+  //   dname,
+  //   emp_status,
+  //   empz_idsl,
+  //   nid_ssn,
+  //   tinx,
+  //   per_addx,
+  //   pre_addx,
+  //   paymode,
+  //   iou_sts,
+  //   bank_branch,
+  //   bank_name,
+  //   acc_name,
+  //   acc_no,
+  //   mfs_operator_name,
+  //   mfs_acc,
+  //   bonus_sts,
+  //   bonus_details,
+  //   allown_sts,
+  //   allown_details,
+  //   earnwage_sts,
+  //   providentfund_sts,
+  //   pickdrop_sts,
+  //   vehicle,
+  //   vehicle_rate
+  // } = empPayroll;
+  // const [bonusDetail1, bonusDetail2, bonusDetail3] = bonus_details && bonus_details.length >= 3 ? bonus_details : [null, null, null];
+  // const [allownDetail1, allownDetail2, allownDetail3] = allown_details && allown_details.length >= 3 ? allown_details : [null, null, null];
 
   return (
     <Box>
-      <MainCard>
+      {/* <MainCard>
         <Typography align="left" variant="h5" component="h2">
           Details Profile
         </Typography>
@@ -621,7 +618,7 @@ export default function ProfileInfo() {
             </ListItem>
           </Grid>
         </Grid>
-      </MainCard>
+      </MainCard> */}
     </Box>
   );
 }

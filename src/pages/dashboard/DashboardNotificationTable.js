@@ -67,7 +67,7 @@ export default function DashboardNotificationTable() {
         setDashboardNotifications(data.data);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         <></>;
       });
@@ -117,18 +117,7 @@ export default function DashboardNotificationTable() {
                     </ListItemAvatar>
 
                     <ListItemText primary={<Typography variant="h6">{notify.text}</Typography>} secondary={getTimeAgo(notify.created_at)} />
-                    {/* <ListItemSecondaryAction>
-                      <Typography variant="caption" noWrap>
-                        <CardHeader
-                          subheader={
-                            <Box display="flex">
-                              <Typography sx={{ mt: -1, fontSize: 10 }}>{getTimeAgo(notify.created_at)}</Typography>
-                              <AccessTimeIcon sx={{ fontSize: 15, ml: 1, mt: -1 }} />
-                            </Box>
-                          }
-                        />
-                      </Typography>
-                    </ListItemSecondaryAction> */}
+                
                   </ListItemButton>
                   <Divider />
                 </List>

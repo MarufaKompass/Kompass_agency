@@ -1,23 +1,9 @@
 import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-  Avatar,
-  Box,
-  ButtonBase,
-  CardContent,
-  ClickAwayListener,
-  Grid,
-  IconButton,
-  Paper,
-  Popper,
-  Stack,
-  Tab,
-  Tabs,
-  Typography
-} from '@mui/material';
+import { Box, ButtonBase, ClickAwayListener, Paper, Popper, Tab, Tabs } from '@mui/material';
 
 // project import
 import MainCard from 'components/MainCard';
@@ -26,13 +12,12 @@ import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
 
 // assets
-import avatar1 from 'assets/images/users/avatar-1.png';
-import Logout from 'components/svg/Logout';
+// import Logout from 'components/svg/Logout';
 import Settings from 'components/svg/Settings';
 import User from 'components/svg/User';
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from 'AppContextProvider';
-import axiosInstance from 'utils/axios.config';
+// import { useAppContext } from 'AppContextProvider';
+// import axiosInstance from 'utils/axios.config';
 
 // tab panel wrapper
 function TabPanel({ children, value, index, ...other }) {
@@ -61,20 +46,20 @@ function a11yProps(index) {
 const Profile = () => {
   const theme = useTheme();
   const navigate = useNavigate();
-  const { profile, setProfile, user } = useAppContext();
+  // const { profile, setProfile, user } = useAppContext();
 
-  useEffect(() => {
-    const fetchData = () => {
-      axiosInstance
-        .get('https://api.hellokompass.com/profile')
-        .then((res) => {
-          setProfile(res.data.data);
-        })
-        .catch((error) => 'error');
-    };
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //     axiosInstance
+  //       .get('https://api.hellokompass.com/profile')
+  //       .then((res) => {
+  //         setProfile(res.data.data);
+  //       })
+  //       .catch(() => 'error');
+  //   };
 
-    fetchData();
-  }, [user]);
+  //   fetchData();
+  // }, [user]);
 
   const handleLogout = async () => {
     // logout
@@ -118,10 +103,10 @@ const Profile = () => {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
+        {/* <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
           <Avatar alt="profile user" src={profile.person_image} sx={{ width: 32, height: 32 }} />
           <Typography variant="subtitle1">{profile.person_name}</Typography>
-        </Stack>
+        </Stack> */}
       </ButtonBase>
       <Popper
         placement="bottom-end"
@@ -157,7 +142,7 @@ const Profile = () => {
               >
                 <ClickAwayListener onClickAway={handleClose}>
                   <MainCard elevation={0} border={false} content={false}>
-                    <CardContent sx={{ px: 2.5, pt: 3 }}>
+                    {/* <CardContent sx={{ px: 2.5, pt: 3 }}>
                       <Grid container justifyContent="space-between" alignItems="center">
                         <Grid item>
                           <Stack direction="row" spacing={1.25} alignItems="center">
@@ -176,7 +161,7 @@ const Profile = () => {
                           </IconButton>
                         </Grid>
                       </Grid>
-                    </CardContent>
+                    </CardContent> */}
                     {open && (
                       <>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

@@ -11,7 +11,7 @@ import MainCard from 'components/MainCard';
 const AuthCard = ({ children, ...other }) => (
   <MainCard
     sx={{
-      maxWidth: { xs: 400,sm:800, xl: 1200, md: 1000,lg:1100 },
+      maxWidth: { xs: 400, sm: 600, xl: 600, md: 600, lg: 600 },
       margin: { xs: 2.5, md: 3 },
       '& > *': {
         flexGrow: 1,

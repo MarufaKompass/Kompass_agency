@@ -30,7 +30,7 @@ const AuthLogin = () => {
 
   const theme = createTheme({
     palette: {
-      anger: createColor('#1198a0')
+      anger: createColor('#0C1E21')
     }
   });
 

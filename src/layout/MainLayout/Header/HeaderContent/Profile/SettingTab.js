@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Box, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 // assets
-import {QuestionCircleOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 // ==============================|| HEADER PROFILE - SETTING TAB ||============================== //
 
@@ -21,14 +21,14 @@ const SettingTab = () => {
   };
   return (
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32, color: theme.palette.grey[500] } }}>
-    <Box onClick={handleButtonSupport}>
-    <ListItemButton selected={selectedIndex === 0} onClick={(event) => handleListItemClick(event, 0)} sx={{mb:"20px"}}>
-        <ListItemIcon>
-          <QuestionCircleOutlined />
-        </ListItemIcon>
-        <ListItemText primary="Support" />
-      </ListItemButton>
-    </Box>
+      <Box onClick={handleButtonSupport}>
+        <ListItemButton selected={selectedIndex === 0} onClick={(event) => handleListItemClick(event, 0)} sx={{ mb: '20px' }}>
+          <ListItemIcon>
+            <QuestionCircleOutlined />
+          </ListItemIcon>
+          <ListItemText primary="Support" />
+        </ListItemButton>
+      </Box>
       {/* <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
         <ListItemIcon>
           <UserOutlined />

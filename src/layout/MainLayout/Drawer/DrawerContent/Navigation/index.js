@@ -16,7 +16,6 @@ const Navigation = () => {
         return <Typography></Typography>;
     }
   });
-  console.log(navGroups);
 
   return <Box sx={{ pt: 2 }}>{navGroups}</Box>;
 };

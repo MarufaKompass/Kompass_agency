@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-function Root(props, ref) {
+function Root() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 6.43994V9.76994" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" />

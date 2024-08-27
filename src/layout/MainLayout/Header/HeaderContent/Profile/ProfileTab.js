@@ -44,37 +44,36 @@ const ProfileTab = ({ handleLogout }) => {
           <Edit>
             <EditOutlined />
           </Edit>
-          <ListItemText primary="Edit Profile" sx={{ml:2}}/>
+          <ListItemText primary="Edit Profile" sx={{ ml: 2 }} />
         </ListItemButton>
       </Box>
-      {
-        module_list.payroll === true ? (
-<Box onClick={handleButtonViewProfile}>
-        <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
-          <User>
-            <UserOutlined />
-          </User>
-          <ListItemText primary="View Profile" sx={{ml:2}}/>
-        </ListItemButton>
-      </Box>
-        ) :
+      {module_list.payroll === true ? (
+        <Box onClick={handleButtonViewProfile}>
+          <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1)}>
+            <User>
+              <UserOutlined />
+            </User>
+            <ListItemText primary="View Profile" sx={{ ml: 2 }} />
+          </ListItemButton>
+        </Box>
+      ) : (
         <></>
-      }
-      
-   <Box onClick={handleButtonChangePassword}>
-      <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
-        <Cpassword>
-          <ProfileOutlined />
-        </Cpassword>
-        <ListItemText primary="Change Password"  sx={{ml:2}}/>
-      </ListItemButton>
+      )}
+
+      <Box onClick={handleButtonChangePassword}>
+        <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
+          <Cpassword>
+            <ProfileOutlined />
+          </Cpassword>
+          <ListItemText primary="Change Password" sx={{ ml: 2 }} />
+        </ListItemButton>
       </Box>
-    
+
       <ListItemButton selected={selectedIndex === 2} onClick={handleLogout}>
         <Logout>
           <LogoutOutlined />
         </Logout>
-        <ListItemText primary="Logout" sx={{ml:2}}/>
+        <ListItemText primary="Logout" sx={{ ml: 2 }} />
       </ListItemButton>
     </List>
   );

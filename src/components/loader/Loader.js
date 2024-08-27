@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { useLottie } from "lottie-react";
-import animation from "../../assets/images/image/loader_animation.json";
-import { Box } from "@mui/material/index";
+import { useLottie } from 'lottie-react';
+import animation from '../../assets/images/image/loader_animation.json';
+import { Box } from '@mui/material/index';
 export default function Loader() {
   const options = {
     animationData: animation,
-    loop: true,
+    loop: true
   };
   const { View } = useLottie(options);
 
   return (
-    
     <Box display="flex" justifyContent="center" alignItems="center">
       {View}
     </Box>

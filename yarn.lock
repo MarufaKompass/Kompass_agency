@@ -2084,6 +2084,19 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@preact/signals-core@^1.7.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.8.0.tgz#45ffadb81b48a298a4accd26b3f6c0140cd6dacc"
+  integrity sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA==
+
+"@preact/signals-react@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@preact/signals-react/-/signals-react-2.2.0.tgz#82e9d00a816e17b8750907eb495026a949c4a2bc"
+  integrity sha512-EPYlhXqqcOUxz2gTQGt4rtK6X7Jr04517DcJVZ4I5a7Gxy39haK24uFeVWtiU/tnEReRFcxpQN6poYra1jf68A==
+  dependencies:
+    "@preact/signals-core" "^1.7.0"
+    use-sync-external-store "^1.2.0"
+
 "@rc-component/color-picker@~1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@rc-component/color-picker/-/color-picker-1.5.1.tgz#5d41a10f96aab8eb020999bd397fb4419431814c"
@@ -10856,6 +10869,11 @@ use-sync-external-store@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+
+use-sync-external-store@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.2.tgz#c3b6390f3a30eba13200d2302dcdf1e7b57b2ef9"
+  integrity sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"

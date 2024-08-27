@@ -57,9 +57,7 @@ const Header = ({ open, handleDrawerToggle }) => {
       ) : (
         <AppBar {...appBar}>{mainHeader}</AppBar>
       )}
-      
     </>
-   
   );
 };
 

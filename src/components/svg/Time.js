@@ -12,13 +12,7 @@ function Root(props, ref) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M15.4316 14.9429L11.6616 12.6939V7.84692"
-        stroke="#707070"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M15.4316 14.9429L11.6616 12.6939V7.84692" stroke="#707070" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

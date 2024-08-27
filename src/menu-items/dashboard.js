@@ -1,6 +1,6 @@
 // assets
 
-import board from "../components/svg/Dashboard"
+import board from '../components/svg/Dashboard';
 // icons
 const icons = {
   board

@@ -125,8 +125,6 @@ export default function ProfileImage() {
     //     </form>
     //   </Box>
     // </Modal>
-    <Box>
-      
-    </Box>
+    <Box></Box>
   );
 }

@@ -17,10 +17,10 @@ const agent = {
   type: 'group',
   children: [
     {
-      id: 'add_agent',
-      title: 'Add Agent',
+      id: 'agent_board',
+      title: 'Agent Board',
       type: 'item',
-      url: '/add_agent',
+      url: '/agent_board',
       icon: icons.appoints
     }
   ]

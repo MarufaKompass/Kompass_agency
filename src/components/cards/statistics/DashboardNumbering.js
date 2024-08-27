@@ -6,8 +6,8 @@ import MainCard from 'components/MainCard';
 
 // ==============================|| STATISTICS - ECOMMERCE CARD  ||============================== //
 
-const DashboardNumbering = ({ title, count, icons,color}) => (
-  <MainCard contentSX={{ p: 3,backgroundColor:color }} >
+const DashboardNumbering = ({ title, count, icons, color }) => (
+  <MainCard contentSX={{ p: 3, backgroundColor: color }}>
     <Box sx={{ display: 'flex' }}>
       <Box width="100%">
         <Stack spacing={0.5}>
@@ -25,8 +25,18 @@ const DashboardNumbering = ({ title, count, icons,color}) => (
           </Typography>
         </Box>
       </Box>
-      <Box display="flex"  alignItems="center" >
-        <Box  border="1px solid #fff" width="40px" height="40px" display="flex" justifyContent="center" alignItems="center" borderRadius="50%">{icons}</Box>
+      <Box display="flex" alignItems="center">
+        <Box
+          border="1px solid #fff"
+          width="40px"
+          height="40px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          borderRadius="50%"
+        >
+          {icons}
+        </Box>
       </Box>
     </Box>
   </MainCard>

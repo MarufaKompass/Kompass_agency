@@ -1,4 +1,5 @@
 import Loadable from 'components/Loadable';
+
 import { Suspense, lazy } from 'react';
 import Typography from 'themes/overrides/Typography';
 
@@ -7,8 +8,8 @@ const DeActive = Loadable(lazy(() => import('pages/components-overview/agent/DeA
 const Active = Loadable(lazy(() => import('pages/components-overview/agent/Active')));
 const MainLayout = Loadable(lazy(() => import('layout/MainLayout')));
 const PrivateRoutes = Loadable(lazy(() => import('components/privateRoute/PrivateRoutes')));
-const AddAgent = Loadable(lazy(() => import('pages/components-overview/addAgent/AddAgent')));
-
+const AgentBoard = Loadable(lazy(() => import('pages/components-overview/agentBoard/AgentBoard')));
+const CreateAgentBoard = Loadable(lazy(() => import('pages/components-overview/agentBoard/CreateAgentBoard')));
 const MainRoutes = {
   path: '/',
   element: (
@@ -63,16 +64,27 @@ const MainRoutes = {
       )
     },
     {
-      path: 'add_agent',
+      path: 'agent_board',
       element: (
         <Suspense fallback={<Typography>Loading...</Typography>}>
           {' '}
           <PrivateRoutes>
-            <AddAgent></AddAgent>
+            <AgentBoard></AgentBoard>
           </PrivateRoutes>
         </Suspense>
       )
     },
+    {
+      path: 'create_agent',
+      element: (
+        <Suspense fallback={<Typography>Loading...</Typography>}>
+          {' '}
+          <PrivateRoutes>
+            <CreateAgentBoard></CreateAgentBoard>
+          </PrivateRoutes>
+        </Suspense>
+      )
+    }
   ]
 };
 

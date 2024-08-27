@@ -16,6 +16,7 @@ import {
   IconButton,
   Grid,
   CardContent
+
 } from '@mui/material';
 
 import MainCard from 'components/MainCard';
@@ -57,10 +58,8 @@ const Profile = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const { profile, setProfile, user } = useAppContext();
-
+  // console.log('profile', profile);
   const { agname } = profile;
-
-  console.log(agname);
 
   useEffect(() => {
     const fetchData = () => {
@@ -102,6 +101,8 @@ const Profile = () => {
 
   const iconBackColorOpen = 'grey.300';
 
+
+
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <ButtonBase
@@ -117,7 +118,8 @@ const Profile = () => {
         aria-haspopup="true"
         onClick={handleToggle}
       >
-        <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
+   
+        <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }} >
           <Avatar alt="profile user" sx={{ width: 32, height: 32 }} />
           <Typography variant="subtitle1">{agname}</Typography>
         </Stack>

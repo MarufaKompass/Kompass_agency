@@ -1,6 +1,6 @@
 import MainCard from 'components/MainCard';
 import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import axiosInstance from 'utils/axios.config';
 import AgentListItem from './AgentListItem';
 import ButtonAgentBoard from './ButtonAgentBoard';
@@ -11,8 +11,6 @@ import ButtonAgentBoard from './ButtonAgentBoard';
 
 export default function AgentBoard() {
   const [agents, setAgents] = useState([]);
-  console.log(agents);
-
   useEffect(() => {
     axiosInstance
       .get('https://api.hellokompass.com/get-allagent')
@@ -53,12 +51,14 @@ export default function AgentBoard() {
   return (
     <Box>
       <MainCard>
-      <ButtonAgentBoard></ButtonAgentBoard>
-        <Box>
-          {agents.map((agent) => (
-            <AgentListItem key={agent.agent_code} agent={agent} />
-          ))}
-        </Box>
+        <ButtonAgentBoard></ButtonAgentBoard>
+        <Grid container spacing={2}>
+        
+            {agents.map((agent) => (
+              <AgentListItem key={agent.agent_code} agent={agent} />
+            ))}
+      
+        </Grid>
       </MainCard>
     </Box>
   );

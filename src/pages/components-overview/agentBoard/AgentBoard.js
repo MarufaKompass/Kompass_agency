@@ -22,42 +22,14 @@ export default function AgentBoard() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   let isMounted = true; // Flag to track if the component is mounted
-
-  //   axiosInstance
-  //     .get('https://api.hellokompass.com/get-allagent')
-  //     .then((res) => {
-  //       if (isMounted) {
-  //         // Check if the data has changed before setting state
-  //         setAgents((prevAgents) => {
-  //           const newAgents = res.data.data;
-  //           if (JSON.stringify(prevAgents) !== JSON.stringify(newAgents)) {
-  //             return newAgents;
-  //           }
-  //           return prevAgents;
-  //         });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching agents:', error);
-  //     });
-
-  //   return () => {
-  //     isMounted = false; // Cleanup to avoid updating state if the component unmounts
-  //   };
-  // }, []);
-
   return (
     <Box>
       <MainCard>
         <ButtonAgentBoard></ButtonAgentBoard>
         <Grid container spacing={2}>
-        
-            {agents.map((agent) => (
-              <AgentListItem key={agent.agent_code} agent={agent} />
-            ))}
-      
+          {agents.map((agent) => (
+            <AgentListItem key={agent.agent_code} agent={agent} />
+          ))}
         </Grid>
       </MainCard>
     </Box>

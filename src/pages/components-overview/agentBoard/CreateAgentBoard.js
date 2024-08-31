@@ -8,8 +8,9 @@ import agentRegistration from '../../../assets/images/image/agentRegistration.pn
 import axiosInstance from 'utils/axios.config';
 import { useNavigate } from 'react-router-dom';
 export default function CreateAgentBoard() {
-   const navigate = useNavigate();
-  const { profile } = useAppContext();
+  const navigate = useNavigate();
+  const { profile , passwordView } = useAppContext();
+
   const {
     register,
     handleSubmit,
@@ -132,6 +133,7 @@ export default function CreateAgentBoard() {
                               size="large"
                               type="password"
                               placeholder="Enter Password"
+                              onChange={passwordView}
                             />
                           </Box>
                         </FormControl>
@@ -171,7 +173,7 @@ export default function CreateAgentBoard() {
                         fontFamily: 'roboto',
                         backgroundColor: '#0C1E21',
                         '&:hover': {
-                          backgroundColor: '#0e8087'
+                          backgroundColor: '#1b3438'
                         }
                       }}
                     >

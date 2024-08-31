@@ -16,15 +16,12 @@ export const AppContextProvider = ({ children }) => {
 
   const passwordView = (e) => {
     setSelectedPassword(e.target.value);
-
-    // Save the new password to local storage
-    localStorage.setItem('password', newPassword);
   };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
-
+  const [loading, setLoading] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -39,7 +36,9 @@ export const AppContextProvider = ({ children }) => {
         handleTogglePassword,
         selectedPassword,
         setSelectedPassword,
-        passwordView
+        passwordView,
+        loading,
+        setLoading
       }}
     >
       {children}

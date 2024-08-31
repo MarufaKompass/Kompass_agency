@@ -4,7 +4,6 @@ import Edit from 'components/svg/Edit';
 import UpdateAgent from './UpdateAgent';
 const AgentListItem = memo(({ agent }) => {
   const { agent_status, agent_id, agent_name, agent_code, agent_phone } = agent;
-  console.log(agent);
 
   const [open, setOpen] = useState(false);
   const [selectedAgentId, setSelectedAgentId] = useState('');

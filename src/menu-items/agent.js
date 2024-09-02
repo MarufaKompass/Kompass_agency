@@ -1,19 +1,15 @@
 // assets
-import appoints from '../components/svg/Appoint';
-import event from '../components/svg/Event';
-import schedule from '../components/svg/Schedule';
+import agent from '../components/svg/Agent';
+
 // icons
 const icons = {
-  appoints,
-  event,
-  schedule
+  agent
 };
 
-// ==============================|| MENU ITEMS - UTILITIES ||============================== //
+// ==============================|| MENU ITEMS - agent ||============================== //
 
-const agent = {
+const agents = {
   id: 'agent',
-  // title: 'My Kompass Connect',
   type: 'group',
   children: [
     {
@@ -21,9 +17,9 @@ const agent = {
       title: 'Agent Board',
       type: 'item',
       url: '/agent_board',
-      icon: icons.appoints
+      icon: icons.agent
     }
   ]
 };
 
-export default agent;
+export default agents;

@@ -2,19 +2,28 @@ import React, { memo, useState } from 'react';
 import { Box, Avatar, Typography, Grid } from '@mui/material';
 import Edit from 'components/svg/Edit';
 import UpdateAgent from './UpdateAgent';
+import ActiveIcon from 'components/svg/ActiveIcon';
+import StatusChangedModal from './StatusChangedModal';
 const AgentListItem = memo(({ agent }) => {
   const { agent_status, agent_id, agent_name, agent_code, agent_phone } = agent;
 
   const [open, setOpen] = useState(false);
+  const [statusOpen, setStatusOpen] = useState(false);
+  console.log(statusOpen);
   const [selectedAgentId, setSelectedAgentId] = useState('');
-  console.log(selectedAgentId);
-
-
 
   const handleClose = () => setOpen(false);
+
   const handleUpdate = () => {
     setSelectedAgentId(agent_id);
     setOpen(true);
+  };
+
+  const handleStatusClose = () => setStatusOpen(false);
+
+  const handleStatusUpdate = () => {
+    setSelectedAgentId(agent_id);
+    setStatusOpen(true);
   };
   return (
     <Grid item xs={3}>
@@ -33,18 +42,23 @@ const AgentListItem = memo(({ agent }) => {
 
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Box>
-                  <Typography sx={{ color: '#181E27', fontSize: '16px', fontWeight: 'bold', fontFamily: 'roboto', pb: '10px' }}>
-                    Agent Name: {agent_name}
+                  <Typography sx={{ color: '#181E27', fontSize: '18px', fontWeight: 'bold', fontFamily: 'roboto', pb: '10px' }}>
+                    {agent_name}
                   </Typography>
-                  <Typography sx={{ color: '#181E27', fontSize: '12px', fontWeight: 'semibold', fontFamily: 'roboto', pb: '2px' }}>
+                  <Typography sx={{ color: '#181E27', fontSize: '14px', fontWeight: 'medium', fontFamily: 'roboto', pb: '2px' }}>
                     Agent Phone : {agent_phone}
                   </Typography>
-                  <Typography sx={{ color: '#181E27', fontSize: '12px', fontWeight: 'semibold', fontFamily: 'roboto', pb: 2 }}>
+                  <Typography sx={{ color: '#181E27', fontSize: '14px', fontWeight: 'medium', fontFamily: 'roboto', pb: 2 }}>
                     Agent Code : {agent_code}
                   </Typography>
 
-                  <Box onClick={handleUpdate}>
-                    <Edit></Edit>
+                  <Box sx={{ display: 'flex', gap: 1 }}>
+                    <Box onClick={handleUpdate}>
+                      <Edit></Edit>
+                    </Box>
+                    <Box onClick={handleStatusUpdate}>
+                      <ActiveIcon></ActiveIcon>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -60,6 +74,12 @@ const AgentListItem = memo(({ agent }) => {
         agent_name={agent_name}
         agent_code={agent_code}
       ></UpdateAgent>
+      <StatusChangedModal
+        statusOpen={statusOpen}
+        handleStatusClose={handleStatusClose}
+        selectedAgentId={selectedAgentId}
+        agent_code={agent_code}
+      ></StatusChangedModal>
     </Grid>
   );
 });

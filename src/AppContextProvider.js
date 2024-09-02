@@ -12,11 +12,6 @@ export const AppContextProvider = ({ children }) => {
   const [country, setCountry] = useState([]);
 
   const [profile, setProfile] = useState('');
-  const [selectedPassword, setSelectedPassword] = useState('');
-
-  const passwordView = (e) => {
-    setSelectedPassword(e.target.value);
-  };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -34,9 +29,6 @@ export const AppContextProvider = ({ children }) => {
         profile,
         setProfile,
         handleTogglePassword,
-        selectedPassword,
-        setSelectedPassword,
-        passwordView,
         loading,
         setLoading
       }}

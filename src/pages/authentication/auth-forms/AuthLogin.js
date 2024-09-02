@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { useAppContext } from 'AppContextProvider';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import ForgetModal from 'components/modal/ForgetModal';
+// import ForgetModal from 'components/modal/ForgetModal';
 
 const AuthLogin = () => {
   const { palette } = createTheme();
@@ -17,7 +17,7 @@ const AuthLogin = () => {
   // const [data, setData] = useState('');
   const { setUser } = useAppContext();
   const navigate = useNavigate();
-  const [forgetModal, setForgetModal] = useState(false);
+  // const [forgetModal, setForgetModal] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -175,7 +175,7 @@ const AuthLogin = () => {
             </Grid>
           </Grid>
         </form>
-        <ForgetModal forgetModal={forgetModal} handleClose={() => setForgetModal(false)} />
+        {/* <ForgetModal forgetModal={forgetModal} handleClose={() => setForgetModal(false)} /> */}
       </ThemeProvider>
     </>
   );

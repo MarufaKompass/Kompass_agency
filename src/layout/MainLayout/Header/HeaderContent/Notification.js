@@ -26,7 +26,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // assets
 import { CloseOutlined, GiftOutlined } from '@ant-design/icons';
 import { useAppContext } from 'AppContextProvider';
-import NotificationModal from 'components/modal/NotificationModal';
+// import NotificationModal from 'components/modal/NotificationModal';
 import { useNavigate } from 'react-router-dom';
 import Notify from 'components/svg/Notify';
 
@@ -54,7 +54,7 @@ const Notification = () => {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
-  const [openNotificationModal, setOpenNotificationModal] = useState(false);
+  // const [openNotificationModal, setOpenNotificationModal] = useState(false);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -111,7 +111,7 @@ const Notification = () => {
     setInvitation(notify);
   };
 
-  const [courierModal, setCourierModal] = useState('');
+  // const [courierModal, setCourierModal] = useState('');
 
   const handleNotification = (notify) => {
     setOpenNotificationModal(true);
@@ -230,7 +230,7 @@ const Notification = () => {
                           </Typography>
                         </ListItemSecondaryAction>
                       </ListItemButton>
-                      <NotificationModal></NotificationModal>
+                      {/* <NotificationModal></NotificationModal> */}
                       <Divider />
                     </List>
                   ))}
@@ -241,11 +241,11 @@ const Notification = () => {
                     handleClose={() => setOpenMeetingModal(false)}
                   />
                   <EventModal invitation={invitation} openEventModal={openEventModal} handleClose={() => setOpenEventModal(false)} /> */}
-                  <NotificationModal
+                  {/* <NotificationModal
                     courierModal={courierModal}
                     openNotificationModal={openNotificationModal}
                     handleClose={() => setOpenNotificationModal(false)}
-                  />
+                  /> */}
                   <ListItemButton onClick={handleButtonNotification} sx={{ textAlign: 'center', py: `${12}px !important` }}>
                     <ListItemText
                       primary={

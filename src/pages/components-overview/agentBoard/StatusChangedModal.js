@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Modal, Typography, Grid, FormControl, TextField, Button } from '@mui/material';
+import { Box, Modal, Typography, Grid, FormControl, TextField, Button, MenuItem, Select } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { useAppContext } from 'AppContextProvider';
-import axiosInstance from 'utils/axios.config';
+
+// import axiosInstance from 'utils/axios.config';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,35 +16,32 @@ const style = {
   p: 4
 };
 
-export default function UpdateAgent({ handleClose, open, agent_name, agent_code }) {
-  console.log(agent_name);
-
+export default function StatusChangedModal({ statusOpen, handleStatusClose, selectedAgentId, agent_code }) {
+  console.log(selectedAgentId);
   const {
     register,
-    handleSubmit,
-    reset
+    handleSubmit
+    // reset
     // formState: { errors }
   } = useForm();
-  const { profile } = useAppContext();
-  console.log(profile.agcode);
 
   const onSubmit = (data) => {
     console.log('Form Data: ', data);
-    axiosInstance.post('https://api.hellokompass.com/modify-myagent', data).then((res) => {
-      if (res.data.code === 200) {
-        toast.success(res.data.message);
-        reset();
-        navigate('/agent_board');
-      } else if (res.data.code === 400) {
-        toast.failed(res.data.message);
-      } else {
-        <></>;
-      }
-    });
+    // axiosInstance.post('https://api.hellokompass.com/quickchange-myagent', data).then((res) => {
+    //   if (res.data.code === 200) {
+    //     toast.success(res.data.message);
+    //     reset();
+    //     navigate('/agent_board');
+    //   } else if (res.data.code === 400) {
+    //     toast.failed(res.data.message);
+    //   } else {
+    //     <></>;
+    //   }
+    // });
   };
 
   return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+    <Modal open={statusOpen} onClose={handleStatusClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
       <Box sx={style}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Box>
@@ -68,6 +65,7 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code 
                   </Grid>
                 )}
               </Grid>
+
               <Grid container>
                 <Grid items={true} xs={0} sm={0} md={0} lg={0} sx={{ display: 'flex', alignItems: 'center' }}>
                   <Typography
@@ -75,47 +73,25 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code 
                     component="h4"
                     sx={{ color: '#181E27', fontSize: '14px', fontWeight: 'bold', fontFamily: 'roboto' }}
                   >
-                    Agent Name*
+                    Status Changed *
                   </Typography>
                 </Grid>
-                {agent_name && (
-                  <Grid items={true} xs={12} sm={12} md={12} lg={12}>
-                    <FormControl fullWidth>
-                      <Box sx={{ mt: 1, mb: 3 }}>
-                        <TextField
-                          {...register('agnt_name', { required: true })}
-                          fullWidth
-                          readOnly
-                          name="agnt_name"
-                          id="outlined"
-                          size="large"
-                          // placeholder="Enter Agent Name"
-                          defaultValue={agent_name}
-                        />
-                      </Box>
-                    </FormControl>
-                  </Grid>
-                )}
-              </Grid>
 
-              <Grid container>
-                <Grid items={true} xs={0} sm={0} md={0} lg={0} sx={{ display: 'flex', alignItems: 'center' }}></Grid>
                 <Grid items={true} xs={12} sm={12} md={12} lg={12}>
-                  {profile.agcode && (
-                    <FormControl fullWidth>
-                      <Box sx={{ mt: 1, mb: 3 }}>
-                        <TextField
-                          {...register('agency', { required: true })}
-                          fullWidth
-                          readOnly
-                          name="agency"
-                          id="outlined"
-                          size="large"
-                          value={profile.agcode}
-                        />
-                      </Box>
-                    </FormControl>
-                  )}
+                  <FormControl sx={{ width:'100%',pt:'10px' }} size="medium">
+                    <Select
+                      labelId="demo-select-small-label"
+                      id="demo-select-small"
+                      label="Age"
+                      {...register('agent_status', { required: true })}
+                      name="agent_status"
+                    >
+                     
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Grid>
               </Grid>
             </Box>

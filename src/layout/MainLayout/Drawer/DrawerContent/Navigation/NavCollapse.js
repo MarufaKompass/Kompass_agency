@@ -124,7 +124,7 @@ export default function NavCollapse({ level, item }) {
               height: '100%',
               width: '1px',
               opacity: 1,
-              background: '#12a9b2'
+              background: '#0C1E21'
             }
           }}
         >

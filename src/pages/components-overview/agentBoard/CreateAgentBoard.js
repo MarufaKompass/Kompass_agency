@@ -9,7 +9,7 @@ import axiosInstance from 'utils/axios.config';
 import { useNavigate } from 'react-router-dom';
 export default function CreateAgentBoard() {
   const navigate = useNavigate();
-  const { profile , passwordView } = useAppContext();
+  const { profile } = useAppContext();
 
   const {
     register,
@@ -111,7 +111,7 @@ export default function CreateAgentBoard() {
                   </Box>
 
                   <Box>
-                    <Grid container>
+                    {/* <Grid container>
                       <Grid items={true} xs={0} sm={0} md={0} lg={0} sx={{ display: 'flex', alignItems: 'center' }}>
                         <Typography
                           variant="h6"
@@ -138,7 +138,7 @@ export default function CreateAgentBoard() {
                           </Box>
                         </FormControl>
                       </Grid>
-                    </Grid>
+                    </Grid> */}
 
                     <Grid container>
                       <Grid items={true} xs={0} sm={0} md={0} lg={0} sx={{ display: 'flex', alignItems: 'center' }}></Grid>

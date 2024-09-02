@@ -48,7 +48,7 @@ const NavItem = ({ item, level }) => {
   }, [pathname]);
 
   const textColor = 'text.primary';
-  const iconSelectedColor = '#12ab92';
+  const iconSelectedColor = '#0C1E21';
 
   return (
     <ThemeProvider theme={theme}>

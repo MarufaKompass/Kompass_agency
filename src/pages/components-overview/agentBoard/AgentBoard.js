@@ -34,7 +34,11 @@ export default function AgentBoard() {
       <MainCard>
         <ButtonAgentBoard></ButtonAgentBoard>
         {loading ? (
-          <AgentBoardLoader></AgentBoardLoader>
+          <>
+            <AgentBoardLoader></AgentBoardLoader>
+            <AgentBoardLoader></AgentBoardLoader>
+            <AgentBoardLoader></AgentBoardLoader>
+          </>
         ) : (
           <Grid container spacing={2}>
             {agents.map((agent) => (

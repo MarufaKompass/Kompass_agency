@@ -1,25 +1,15 @@
 import leave from '../components/svg/Leave';
-import earnWage from '../components/svg/EarnWage';
-import loan from '../components/svg/Loan';
-import iou from '../components/svg/Iou';
-import salary from '../components/svg/Salary';
-import providentFund from '../components/svg/Provident';
-import attendance from '../components/svg/Attendance';
+
 
 // icons
 
 const icons = {
   leave,
-  earnWage,
-  loan,
-  iou,
-  salary,
-  providentFund,
-  attendance
+
 };
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
 
-const kompassCompany = {
+const agency = {
   id: 'agency',
   // title: 'kompass Company',
   type: 'group',
@@ -50,4 +40,4 @@ const kompassCompany = {
   ]
 };
 
-export default kompassCompany;
+export default agency;

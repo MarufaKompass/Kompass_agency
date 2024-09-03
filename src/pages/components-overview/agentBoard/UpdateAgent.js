@@ -51,7 +51,7 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code,
             <Box>
               <Grid container>
                 {agent_code && (
-                  <Grid items={true} xs={12} sm={12} md={12} lg={12}>
+                  <Grid items={true} xs={12} sm={12} md={12} lg={12} hidden>
                     <FormControl fullWidth>
                       <Box sx={{ mt: 1, mb: 3 }}>
                         <TextField
@@ -99,8 +99,7 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code,
               </Grid>
 
               <Grid container>
-                <Grid items={true} xs={0} sm={0} md={0} lg={0} sx={{ display: 'flex', alignItems: 'center' }}></Grid>
-                <Grid items={true} xs={12} sm={12} md={12} lg={12}>
+                <Grid items={true} xs={12} sm={12} md={12} lg={12} hidden>
                   {profile.agcode && (
                     <FormControl fullWidth>
                       <Box sx={{ mt: 1, mb: 3 }}>
@@ -120,7 +119,7 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code,
               </Grid>
             </Box>
 
-            <Box sx={{ display: 'flex', justifyContent: 'right', mt: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'right' }}>
               <Button
                 variant="contained"
                 type="submit"

@@ -4,7 +4,7 @@ import Edit from 'components/svg/Edit';
 import UpdateAgent from './UpdateAgent';
 import ActiveIcon from 'components/svg/ActiveIcon';
 import StatusChangedModal from './StatusChangedModal';
-const AgentListItem = memo(({ agent,onUpdate ,setRefresh ,setRefreshStatus,upStatusUpdate}) => {
+const AgentListItem = memo(({ agent, onUpdate, setRefresh, setRefreshStatus, upStatusUpdate }) => {
   const { agent_status, agent_id, agent_name, agent_code, agent_phone } = agent;
 
   const [open, setOpen] = useState(false);
@@ -25,14 +25,12 @@ const AgentListItem = memo(({ agent,onUpdate ,setRefresh ,setRefreshStatus,upSta
     setStatusOpen(true);
   };
 
-
   const handleAgentUpdate = (updatedAgent) => {
     onUpdate(updatedAgent);
     setRefresh((prev) => !prev); // Trigger a refresh in AgentBoard
 
     setOpen(false);
   };
-
 
   const handleAgentStatusUpdate = (updatedStatusAgent) => {
     upStatusUpdate(updatedStatusAgent);
@@ -45,9 +43,25 @@ const AgentListItem = memo(({ agent,onUpdate ,setRefresh ,setRefreshStatus,upSta
         <Box>
           <Box sx={{ boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)' }}>
             <Box>
-              <Typography sx={{ backgroundColor: '#0C1E21', color: '#fff', fontWeight: 'semibold', px: '10px', py: '0px' }}>
-                {agent_status}
-              </Typography>
+              {agent_status === 'active' ? (
+                <Typography sx={{ backgroundColor: '#0C1E21', color: '#fff', fontWeight: 'medium', px: '10px', py: '0px' }}>
+                  {agent_status}
+                </Typography>
+              ) : agent_status === 'inactive' ? (
+                <Typography sx={{ backgroundColor: '#EA5446', color: '#fff', fontWeight: 'medium', px: '10px', py: '0px' }}>
+                  {agent_status}
+                </Typography>
+              ) : agent_status === 'locked' ? (
+                <Typography sx={{ backgroundColor: '#10733D', color: '#fff', fontWeight: 'medium', px: '10px', py: '0px' }}>
+                  {agent_status}
+                </Typography>
+              ) : agent_status === 'terminated' ? (
+                <Typography sx={{ backgroundColor: '#860606', color: '#fff', fontWeight: 'medium', px: '10px', py: '0px' }}>
+                  {agent_status}
+                </Typography>
+              ) : (
+                <></>
+              )}
             </Box>
             <Box sx={{ display: 'flex', gap: 4, p: 3 }}>
               <Box>

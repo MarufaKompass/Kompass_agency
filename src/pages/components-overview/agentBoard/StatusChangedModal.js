@@ -52,7 +52,7 @@ export default function StatusChangedModal({ statusOpen, handleStatusClose, agen
             <Box>
               <Grid container>
                 {agent_code && (
-                  <Grid items={true} xs={12} sm={12} md={12} lg={12}>
+                  <Grid items={true} xs={12} sm={12} md={12} lg={12} hidden>
                     <FormControl fullWidth>
                       <Box sx={{ mt: 1, mb: 3 }}>
                         <TextField

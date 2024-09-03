@@ -13,8 +13,10 @@ import AgentBoardLoader from 'loader/AgentBoardLoader';
 
 export default function AgentBoard() {
   const [agents, setAgents] = useState([]);
+  console.log(agents);
   const { loading, setLoading } = useAppContext();
-
+  const [refresh, setRefresh] = useState(false);
+  const [refreshStatus, setRefreshStatus] = useState(false);
   useEffect(() => {
     setLoading(true);
     axiosInstance
@@ -28,7 +30,15 @@ export default function AgentBoard() {
       .finally(() => {
         setLoading(false);
       });
-  }, [setLoading]);
+  }, [refresh, refreshStatus, setLoading]);
+
+  const handleAgentUpdate = (updatedAgent) => {
+    setAgents((prevAgents) => prevAgents.map((agent) => (agent.agent_name === updatedAgent.agent_name ? updatedAgent : agent)));
+  };
+  const handleAgentStatusUpdate = (updatedAgent) => {
+    setAgents((prevAgents) => prevAgents.map((agent) => (agent.agent_status === updatedAgent.agent_status ? updatedAgent : agent)));
+  };
+
   return (
     <Box>
       <MainCard>
@@ -42,7 +52,14 @@ export default function AgentBoard() {
         ) : (
           <Grid container spacing={2}>
             {agents.map((agent) => (
-              <AgentListItem key={agent.agent_code} agent={agent} />
+              <AgentListItem
+                key={agent.agent_code}
+                agent={agent}
+                onUpdate={handleAgentUpdate}
+                setRefresh={setRefresh}
+                upStatusUpdate={handleAgentStatusUpdate}
+                setRefreshStatus={setRefreshStatus}
+              />
             ))}
           </Grid>
         )}

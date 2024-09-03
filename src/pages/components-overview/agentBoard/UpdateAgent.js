@@ -3,6 +3,7 @@ import { Box, Modal, Typography, Grid, FormControl, TextField, Button } from '@m
 import { useForm } from 'react-hook-form';
 import { useAppContext } from 'AppContextProvider';
 import axiosInstance from 'utils/axios.config';
+import { toast } from 'react-toastify';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,9 +17,7 @@ const style = {
   p: 4
 };
 
-export default function UpdateAgent({ handleClose, open, agent_name, agent_code }) {
-  console.log(agent_name);
-
+export default function UpdateAgent({ handleClose, open, agent_name, agent_code,onUpdate }) {
   const {
     register,
     handleSubmit,
@@ -26,15 +25,16 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code 
     // formState: { errors }
   } = useForm();
   const { profile } = useAppContext();
-  console.log(profile.agcode);
 
   const onSubmit = (data) => {
     console.log('Form Data: ', data);
     axiosInstance.post('https://api.hellokompass.com/modify-myagent', data).then((res) => {
       if (res.data.code === 200) {
         toast.success(res.data.message);
+        const updatedAgent = { ...data, agent_name };
+        onUpdate(updatedAgent);
         reset();
-        navigate('/agent_board');
+        handleClose();
       } else if (res.data.code === 400) {
         toast.failed(res.data.message);
       } else {
@@ -55,7 +55,7 @@ export default function UpdateAgent({ handleClose, open, agent_name, agent_code 
                     <FormControl fullWidth>
                       <Box sx={{ mt: 1, mb: 3 }}>
                         <TextField
-                          {...register('agnt_code', { required: true })}
+                          {...register('agent_code', { required: true })}
                           fullWidth
                           readOnly
                           name="agnt_code"

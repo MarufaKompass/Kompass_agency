@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Modal, Typography, Grid, FormControl, TextField, Button, MenuItem, Select } from '@mui/material';
+import { Box, Modal, Typography, Grid, FormControl, TextField, Button, MenuItem, Select, InputLabel } from '@mui/material';
 import { useForm } from 'react-hook-form';
-
-// import axiosInstance from 'utils/axios.config';
+import { toast } from 'react-toastify';
+import axiosInstance from 'utils/axios.config';
+// import { useNavigate } from 'react-router-dom';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,28 +17,31 @@ const style = {
   p: 4
 };
 
-export default function StatusChangedModal({ statusOpen, handleStatusClose, selectedAgentId, agent_code }) {
-  console.log(selectedAgentId);
+export default function StatusChangedModal({ statusOpen, handleStatusClose, agent_code,onStatusUpdate,agent_status }) {
+  // const navigate = useNavigate();
+
   const {
     register,
-    handleSubmit
-    // reset
+    handleSubmit,
+    reset
     // formState: { errors }
   } = useForm();
 
   const onSubmit = (data) => {
     console.log('Form Data: ', data);
-    // axiosInstance.post('https://api.hellokompass.com/quickchange-myagent', data).then((res) => {
-    //   if (res.data.code === 200) {
-    //     toast.success(res.data.message);
-    //     reset();
-    //     navigate('/agent_board');
-    //   } else if (res.data.code === 400) {
-    //     toast.failed(res.data.message);
-    //   } else {
-    //     <></>;
-    //   }
-    // });
+    axiosInstance.post('https://api.hellokompass.com/quickchange-myagent', data).then((res) => {
+      if (res.data.code === 200) {
+        toast.success(res.data.message);
+        const updatedStatusAgent = { ...data, agent_status };
+        onStatusUpdate(updatedStatusAgent);
+        reset();
+        handleStatusClose();
+      } else if (res.data.code === 400) {
+        toast.failed(res.data.message);
+      } else {
+        <></>;
+      }
+    });
   };
 
   return (
@@ -52,10 +56,10 @@ export default function StatusChangedModal({ statusOpen, handleStatusClose, sele
                     <FormControl fullWidth>
                       <Box sx={{ mt: 1, mb: 3 }}>
                         <TextField
-                          {...register('agnt_code', { required: true })}
+                          {...register('agent_code', { required: true })}
                           fullWidth
                           readOnly
-                          name="agnt_code"
+                          name="agent_code"
                           id="outlined"
                           size="large"
                           value={agent_code}
@@ -78,18 +82,22 @@ export default function StatusChangedModal({ statusOpen, handleStatusClose, sele
                 </Grid>
 
                 <Grid items={true} xs={12} sm={12} md={12} lg={12}>
-                  <FormControl sx={{ width:'100%',pt:'10px' }} size="medium">
+                  <FormControl sx={{ width: '100%', pt: '10px' }} size="medium">
                     <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Age"
                       {...register('agent_status', { required: true })}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
                       name="agent_status"
                     >
-                     
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      <MenuItem>
+                        <InputLabel selected value="" htmlFor="outlined-adornment">
+                          Change Status
+                        </InputLabel>
+                      </MenuItem>
+                      <MenuItem value="active">Active</MenuItem>
+                      <MenuItem value="inactive">Inactive</MenuItem>
+                      <MenuItem value="locked">Locked</MenuItem>
+                      <MenuItem value="terminated">Terminated</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>

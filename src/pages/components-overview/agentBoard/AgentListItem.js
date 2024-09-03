@@ -4,12 +4,11 @@ import Edit from 'components/svg/Edit';
 import UpdateAgent from './UpdateAgent';
 import ActiveIcon from 'components/svg/ActiveIcon';
 import StatusChangedModal from './StatusChangedModal';
-const AgentListItem = memo(({ agent }) => {
+const AgentListItem = memo(({ agent,onUpdate ,setRefresh ,setRefreshStatus,upStatusUpdate}) => {
   const { agent_status, agent_id, agent_name, agent_code, agent_phone } = agent;
 
   const [open, setOpen] = useState(false);
   const [statusOpen, setStatusOpen] = useState(false);
-  console.log(statusOpen);
   const [selectedAgentId, setSelectedAgentId] = useState('');
 
   const handleClose = () => setOpen(false);
@@ -24,6 +23,21 @@ const AgentListItem = memo(({ agent }) => {
   const handleStatusUpdate = () => {
     setSelectedAgentId(agent_id);
     setStatusOpen(true);
+  };
+
+
+  const handleAgentUpdate = (updatedAgent) => {
+    onUpdate(updatedAgent);
+    setRefresh((prev) => !prev); // Trigger a refresh in AgentBoard
+
+    setOpen(false);
+  };
+
+
+  const handleAgentStatusUpdate = (updatedStatusAgent) => {
+    upStatusUpdate(updatedStatusAgent);
+    setRefreshStatus((prev) => !prev); // Trigger a refresh in AgentBoard
+    setStatusOpen(false);
   };
   return (
     <Grid item xs={3}>
@@ -73,12 +87,16 @@ const AgentListItem = memo(({ agent }) => {
         selectedAgentId={selectedAgentId}
         agent_name={agent_name}
         agent_code={agent_code}
+        agent_id={agent_id}
+        onUpdate={handleAgentUpdate}
       ></UpdateAgent>
       <StatusChangedModal
         statusOpen={statusOpen}
         handleStatusClose={handleStatusClose}
         selectedAgentId={selectedAgentId}
         agent_code={agent_code}
+        agent_status={agent_status}
+        onStatusUpdate={handleAgentStatusUpdate}
       ></StatusChangedModal>
     </Grid>
   );
